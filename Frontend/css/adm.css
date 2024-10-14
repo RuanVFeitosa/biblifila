@@ -175,8 +175,11 @@ body {
 }
 
 .atualizar-fila {
-    text-align: center;
-    margin-top: 20px;
-    color: #A00000;
-    font-weight: bold;
+    color: #A00000; /* Cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 8px; /* Cantos arredondados */
+    padding: 10px; /* Espaçamento interno */
+    font-size: 18px; /* Tamanho da fonte */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    margin-top: 20px; /* Espaço superior */
 }
