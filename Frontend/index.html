@@ -14,10 +14,40 @@
 </head>
 
 <body>
-    <button class="login">Login</button>
+    <a href="./adm.html">
+        <button class="login">Login</button>
+    </a>
     <H1 class="title">BIBLIFILA</H1>
-    <button class="ns"><p>Nova Senha</p></button>
-    <button class="fe"><p>Acompanhar fila de espera</p></button>
+    <button class="ns" onclick="togglePopup()"><p>Nova Senha</p></button>
+    <a href="./senhas.html">
+        <button class="fe" onclick="" ><p>Acompanhar fila de espera</p> </button>
+    </a>
+
+    <!-- The form -->
+    <div id="popupOverlay" class="overlay-container">
+        <div class="popup-box">
+            <h2 style="color: green;">Criar Nova Senha</h2>
+            <p>Digite os dados e confirme!</p>
+
+            <form class="form-container">
+                <label class="form-label" for="name">Nome</label>
+                <input class="form-input" type="text" placeholder="Insira seu nome" id="name" name="name" required>
+
+                <label class="form-label" for="email">Ocupação</label>
+                <input class="form-input" type="email" placeholder="Insira sua ocupação" id="email" name="email" required>
+
+                <button class="btn-submit" type="submit">
+                    Submit
+                </button>
+            </form>
+
+            <button class="btn-close-popup" onclick="togglePopup()">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script src="./js/forms.js"></script>
 </body>
 
 </html>
