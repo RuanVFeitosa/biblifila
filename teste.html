@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>teste</h1>
+
+
+    <div class="container">
+        <div class="chamados">
+        <h2>Chamados</h2>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            <h3 class="cham">3</h3>
+            
+        </div>
+        <div class="pendentes">
+        <h2>Pendentes</h2>
+            <h3>3</h3>
+            <h3>1</h3>
+            <h3>2</h3>
+        </div>
+    </div>
+</body>
+<script>
+    const cham = document.querySelectorAll(".cham");
+    const containerChamados = document.getElementsByClassName("chamados")[0];
+    console.log(cham.length);
+    if(cham.length > 20){
+        containerChamados.innerHTML = ""
+    }
+</script>
+</html>
