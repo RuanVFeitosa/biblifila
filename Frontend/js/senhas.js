@@ -1,68 +1,58 @@
-const containerProx = document.getElementsByClassName("prox-list")[0]
-const containerCham = document.getElementsByClassName("cham-list")[0]
-const senhaAtual = document.getElementsByClassName("senha-atual")[0]
+const limite = 10; // Definindo o limite de senhas
+const containerProx = document.getElementsByClassName("prox-list")[0];
+const containerCham = document.getElementsByClassName("cham-list")[0];
 
-// console.log(containerCham, containerProx)
+// Função para limitar senhas na lista
+const limitarSenhas = (container, tipo) => {
+    const itens = container.getElementsByClassName(tipo);
+    if (itens.length > limite) {
+        for (let i = limite; i < itens.length; i++) {
+            itens[i].style.display = 'none'; // Esconder senhas que ultrapassam o limite
+        }
+    }
+};
 
-
-const proximosLista = async() => {
-    const response = await fetch('http://localhost:5000/fila/pendentes', {
-        method : "GET",
-        headers : {},
-    })
-
-    const json = await response.json();
-    const pendentes = json.pendentes;
-    pendentes.forEach(element => {
-
-        containerProx.innerHTML += 
-        `<div class="prox">${element.senha}</div>`
-        // console.log(element)
-    });
-    // console.log(pendentes);
-}
-
-// setTimeout(function (){
-//     window.location.reload(1);
-// }, 5000)
-
-// window.location.reload();
-
+// Chama a função para limitar as senhas em ambas as listas
+limitarSenhas(containerProx, 'prox');
+limitarSenhas(containerCham, 'cham');
 
 
 const chamadosLista = async () => {
     try {
         const response = await fetch('http://localhost:5000/fila/concluidos', {
-            method : "GET",
-        })
+            method: "GET",
+        });
 
         const json = await response.json();
-
         const concluidos = json.concluidos;
 
-        concluidos.forEach(element => {
-            containerCham.innerHTML += `<div class="cham">${element.senha}</div>`
-            // console.log(element)
-        })
-        // console.log(json)
+        // Limpar a lista anterior
+        containerCham.innerHTML = '';
+
+        // Adicionar senhas, respeitando o limite
+        concluidos.slice(0, limite).forEach(element => {
+            containerCham.innerHTML += `<div class="cham">${element.senha}</div>`;
+        });
     } catch (error) {
         console.log(error);
     }
-}
+};
 
-const proxLista = async() => {
+// Função para obter a senha atual
+const proxLista = async () => {
     const response = await fetch('http://localhost:5000/fila/proxLista', {
-        method : "GET"
-    })
+        method: "GET"
+    });
 
     const json = await response.json();
     const proxListaItem = json.proxLista;
-    senhaAtual.innerHTML = 
-    `<h1>${proxListaItem.senha}</h1> 
-    <p>${proxListaItem.nome}<br>Dirija-se a atração</p>`
-    console.log(proxListaItem)
-}
 
+    senhaAtual.innerHTML = `
+        <h1>${proxListaItem.senha}</h1>
+        <p>${proxListaItem.nome}<br>Dirija-se à atração</p>`;
+};
+
+// Chamar as funções ao carregar a página
 proximosLista();
 chamadosLista();
 proxLista();
