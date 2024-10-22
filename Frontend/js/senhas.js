@@ -1,43 +1,68 @@
-let senhasProximas = [18, 12, 11, 10];
-let senhasChamadas = [9, 4, 8, 7];  // Lista de senhas já chamadas
+const containerProx = document.getElementsByClassName("prox-list")[0]
+const containerCham = document.getElementsByClassName("cham-list")[0]
+const senhaAtual = document.getElementsByClassName("senha-atual")[0]
 
-function atualizarFila() {
-    const senhaList = document.getElementById('senha-list');
-    senhaList.innerHTML = ''; // Limpa a tabela antes de renderizar novamente
+// console.log(containerCham, containerProx)
 
-    // Atualiza os "Próximos"
-    senhasProximas.forEach(prox => {
-        const proxDiv = document.createElement('div');
-        proxDiv.className = 'prox';
-        proxDiv.textContent = prox;
-        senhaList.appendChild(proxDiv);
+
+const proximosLista = async() => {
+    const response = await fetch('http://localhost:5000/fila/pendentes', {
+        method : "GET",
+        headers : {},
+    })
+
+    const json = await response.json();
+    const pendentes = json.pendentes;
+    pendentes.forEach(element => {
+
+        containerProx.innerHTML += 
+        `<div class="prox">${element.senha}</div>`
+        // console.log(element)
     });
-
-    // Atualiza os "Chamados"
-    senhasChamadas.forEach(cham => {
-        const chamDiv = document.createElement('div');
-        chamDiv.className = 'cham';
-        chamDiv.textContent = cham;
-        senhaList.appendChild(chamDiv);
-    });
+    // console.log(pendentes);
 }
 
-function chamarSenha() {
-    if (senhasProximas.length > 0) {
-        // Mover o primeiro número da lista "Próximos" para o fim da lista "Chamados"
-        const proximaSenha = senhasProximas.shift(); // Remove o primeiro número de "Próximos"
-        senhasChamadas.push(proximaSenha); // Adiciona ao fim de "Chamados"
+setTimeout(function (){
+    window.location.reload(1);
+}, 5000)
 
-        // Exibir o número do topo da lista de "Chamados" como a senha atual
-        const senhaAtual = senhasChamadas[0]; // Primeiro número da fila de "Chamados"
-        document.getElementById('senha-atual').querySelector('h1').textContent = senhaAtual;
+// window.location.reload();
 
-        // Atualiza a interface gráfica
-        atualizarFila();
-    } else {
-        alert('Não há mais senhas a chamar!');
+
+
+const chamadosLista = async () => {
+    try {
+        const response = await fetch('http://localhost:5000/fila/concluidos', {
+            method : "GET",
+        })
+
+        const json = await response.json();
+
+        const concluidos = json.concluidos;
+
+        concluidos.forEach(element => {
+            containerCham.innerHTML += `<div class="cham">${element.senha}</div>`
+            // console.log(element)
+        })
+        // console.log(json)
+    } catch (error) {
+        console.log(error);
     }
 }
 
-// Inicializa a fila ao carregar
-atualizarFila();
+const proxLista = async() => {
+    const response = await fetch('http://localhost:5000/fila/proxLista', {
+        method : "GET"
+    })
+
+    const json = await response.json();
+    const proxListaItem = json.proxLista;
+    senhaAtual.innerHTML = 
+    `<h1>${proxListaItem.senha}</h1> 
+    <p>${proxListaItem.nome}<br>Dirija-se a atração</p>`
+    console.log(proxListaItem)
+}
+
+proximosLista();
+chamadosLista();
+proxLista();
