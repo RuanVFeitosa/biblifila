@@ -22,9 +22,9 @@ const proximosLista = async() => {
     // console.log(pendentes);
 }
 
-setTimeout(function (){
-    window.location.reload(1);
-}, 5000)
+// setTimeout(function (){
+//     window.location.reload(1);
+// }, 5000)
 
 // window.location.reload();
 
