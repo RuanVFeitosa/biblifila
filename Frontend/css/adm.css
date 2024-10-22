@@ -226,6 +226,7 @@ body {
 
 .pedido-numero {
     display: flex;
+    flex-direction: column;
     font-size: 36px;
     color: green;
     margin: 20px 0; /* Adicionado espaçamento superior e inferior */
