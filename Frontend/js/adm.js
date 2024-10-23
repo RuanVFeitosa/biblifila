@@ -1,5 +1,5 @@
-const containerProx = document.getElementsByClassName("prox-list")[0]
-const containerCham = document.getElementsByClassName("cham-list")[0]
+const containerProx = document.getElementsByClassName("containerProx")[0]
+const containerCham = document.getElementsByClassName("containerCham")[0]
 const proxListaContainer = document.getElementsByClassName("pedido-numero")[0]
 
 
