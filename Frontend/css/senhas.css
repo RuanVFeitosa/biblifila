@@ -102,9 +102,7 @@ body {
     /* justify-content: space-around; */
     /* justify-content: start; */
     /* align-items: start; */
-    flex-grow: 1;
-    gap: 10px;
-} */
+
 
 /* .prox, .cham-title {
     display: flex;
