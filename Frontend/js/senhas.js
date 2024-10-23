@@ -1,20 +1,20 @@
 const limite = 10; // Definindo o limite de senhas
-const containerProx = document.getElementsByClassName("prox-list")[0];
-const containerCham = document.getElementsByClassName("cham-list")[0];
+const containerProx = document.getElementsByClassName("containerProx")[0];
+const containerCham = document.getElementsByClassName("containerCham")[0];
 const senhaAtual = document.getElementsByClassName("senha-atual")[0];
 // Função para limitar senhas na lista
-const limitarSenhas = (container, tipo) => {
-    const itens = container.getElementsByClassName(tipo);
-    if (itens.length > limite) {
-        for (let i = limite; i < itens.length; i++) {
-            itens[i].style.display = 'none'; // Esconder senhas que ultrapassam o limite
-        }
-    }
-};
+// const limitarSenhas = (container, tipo) => {
+//     const itens = container.getElementsByClassName(tipo);
+//     if (itens.length > limite) {
+//         for (let i = limite; i < itens.length; i++) {
+//             itens[i].style.display = 'none'; // Esconder senhas que ultrapassam o limite
+//         }
+//     }
+// };
 
-// Chama a função para limitar as senhas em ambas as listas
-limitarSenhas(containerProx, 'prox');
-limitarSenhas(containerCham, 'cham');
+// // Chama a função para limitar as senhas em ambas as listas
+// limitarSenhas(containerProx, 'prox');
+// limitarSenhas(containerCham, 'cham');
 
 const proximosLista = async() => {
     const response = await fetch('http://10.92.198.7:5000/fila/pendentes', {
@@ -27,7 +27,7 @@ const proximosLista = async() => {
     pendentes.forEach(element => {
 
         containerProx.innerHTML += 
-        <div class="prox">${element.senha}</div>
+        `<div class="prox">${element.senha}</div>`
         // console.log(element)
     });
     // console.log(pendentes);
@@ -52,7 +52,7 @@ const chamadosLista = async () => {
         containerCham.innerHTML = '';
 
         // Adicionar senhas, respeitando o limite
-        concluidos.slice(0, limite).forEach(element => {
+        concluidos.forEach(element => {
             containerCham.innerHTML += `<div class="cham">${element.senha}</div>`;
         });
     } catch (error) {
