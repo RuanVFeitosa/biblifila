@@ -31,7 +31,7 @@ form.addEventListener('submit', async(e) => {
         status : 'Pendente'
     })
 
-    const response = await fetch('http://localhost:5000/fila', {
+    const response = await fetch('http://10.92.198.7:5000/fila', {
         method : 'POST',
         headers : {"Content-type": "application/json; charset=UTF-8"},
         body : data

@@ -1,7 +1,7 @@
 const limite = 10; // Definindo o limite de senhas
 const containerProx = document.getElementsByClassName("prox-list")[0];
 const containerCham = document.getElementsByClassName("cham-list")[0];
-
+const senhaAtual = document.getElementsByClassName("senha-atual")[0];
 // Função para limitar senhas na lista
 const limitarSenhas = (container, tipo) => {
     const itens = container.getElementsByClassName(tipo);
@@ -17,7 +17,7 @@ limitarSenhas(containerProx, 'prox');
 limitarSenhas(containerCham, 'cham');
 
 const proximosLista = async() => {
-    const response = await fetch('http://localhost:5000/fila/pendentes', {
+    const response = await fetch('http://10.92.198.7:5000/fila/pendentes', {
         method : "GET",
         headers : {},
     })
@@ -41,7 +41,7 @@ const proximosLista = async() => {
 
 const chamadosLista = async () => {
     try {
-        const response = await fetch('http://localhost:5000/fila/concluidos', {
+        const response = await fetch('http://10.92.198.7:5000/fila/concluidos', {
             method: "GET",
         });
 
@@ -62,7 +62,7 @@ const chamadosLista = async () => {
 
 // Função para obter a senha atual
 const proxLista = async () => {
-    const response = await fetch('http://localhost:5000/fila/proxLista', {
+    const response = await fetch('http://10.92.198.7:5000/fila/proxLista', {
         method: "GET"
     });
 
