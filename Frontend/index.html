@@ -12,14 +12,9 @@
 </head>
 
 <body>
-    <a href="./adm.html">
-        <button class="login">Login</button>
-    </a>
     <h1 class="title">BIBLIFILA</h1>
     <button class="ns" onclick="togglePopup()"><p>Nova Senha</p></button>
-    <a href="./senhas.html">
-        <button class="fe"><p>Acompanhar fila de espera</p></button>
-    </a>
+    
 
     <!-- The form Senha -->
     <div id="popupOverlay" class="overlay-container">
@@ -31,10 +26,11 @@
                 <label class="form-label" for="name">Nome</label>
                 <input class="form-input" type="text" placeholder="Insira seu nome" id="name" name="name" required>
 
-                <label class="form-label" for="email">Ocupação</label>
-                <input class="form-input" type="text" placeholder="Insira sua ocupação" id="email" name="email">
+                <!-- <label class="form-label" for="email">Ocupação</label>
+                <input class="form-input" type="text" placeholder="Insira sua ocupação" id="email" name="email"> -->
 
-                <button class="btn-submit" type="submit" onclick="clicked(event)">
+                <button class="btn-submit" type="submit" >
+                    <!-- onclick="clicked(event) -->
                     Confirmar
                 </button>
             </form>
@@ -48,7 +44,7 @@
         <div class="popup-box">
             <h1 style="color: green;">Cadastro realizado com sucesso!</h2>
             <p class="subtitulo">Essa é a sua senha</p>
-            <h2>20</h2>
+            <h2 id="senha">20</h2>
             <p class="subtitulo2">Tire foto ou anote sua senha</p>
             <button class="btn-close-popup" onclick="closeSuccessPopup()">Fechar</button>
         </div>

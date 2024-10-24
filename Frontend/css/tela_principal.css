@@ -71,7 +71,7 @@ button {
     border-radius: 32px;
     background: none;
     border: 2px solid var(--Colors-Mint, #00C7BE);
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .ns p {

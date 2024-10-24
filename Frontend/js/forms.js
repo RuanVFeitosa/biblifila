@@ -46,25 +46,33 @@ form.addEventListener('submit', async(e) => {
 
 
 
-    console.log("fez o submit");
-    console.log(name.value);
+    // console.log("fez o submit");
+    // console.log(name.value);
 
     const data = JSON.stringify({
         nome : name.value,
         status : 'Pendente'
     })
 
-    const response = await fetch('http://10.92.198.7:5000/fila', {
-        method : 'POST',
-        headers : {"Content-type": "application/json; charset=UTF-8"},
-        body : data
-    })
+    try {
+        const response = await fetch('http://localhost:5000/fila', {
+            method : 'POST',
+            headers : {"Content-type": "application/json; charset=UTF-8"},
+            body : data
+        })
+    
+        const json = await response.json();
+        document.getElementById("senha").innerText = json.fila.senha;
 
-    const json = await response.json();
+        clicked(e);
+        name.value = ""
 
-    console.log(json);
+        // console.log(json);
+
+    } catch (error) {
+        console.error(error);
+    }
 
 
-    window.location.reload();
-    alert('Cadastro feito com sucesso')
+    // alert('Cadastro feito com sucesso')
 })
