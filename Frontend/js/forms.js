@@ -1,7 +1,30 @@
 function togglePopup() {
-    const overlay = document.getElementById('popupOverlay');
-    overlay.classList.toggle('show');
+    const popupOverlay = document.getElementById("popupOverlay");
+    popupOverlay.classList.toggle("show");
 }
+
+function showSuccessPopup() {
+    const successPopup = document.getElementById("successPopup");
+    successPopup.classList.add("show"); // Exibe o popup de sucesso
+}
+
+function closeSuccessPopup() {
+    const successPopup = document.getElementById("successPopup");
+    successPopup.classList.remove("show"); // Fecha o popup de sucesso
+}
+
+function clicked(event) {
+    event.preventDefault(); // Impede o envio do formulário
+    
+    // Fecha o formulário
+    const popupOverlay = document.getElementById("popupOverlay");
+    popupOverlay.classList.remove("show");
+
+    // Exibe o popup de sucesso
+    showSuccessPopup();
+}
+
+
 
 // function clicked(e)
 // {

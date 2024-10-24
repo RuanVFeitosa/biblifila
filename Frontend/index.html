@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/tela_principal.css">
     <title>BIBLIFILA</title>
 </head>
@@ -17,10 +15,10 @@
     <a href="./adm.html">
         <button class="login">Login</button>
     </a>
-    <H1 class="title">BIBLIFILA</H1>
+    <h1 class="title">BIBLIFILA</h1>
     <button class="ns" onclick="togglePopup()"><p>Nova Senha</p></button>
     <a href="./senhas.html">
-        <button class="fe" onclick="" ><p>Acompanhar fila de espera</p> </button>
+        <button class="fe"><p>Acompanhar fila de espera</p></button>
     </a>
 
     <!-- The form Senha -->
@@ -34,16 +32,25 @@
                 <input class="form-input" type="text" placeholder="Insira seu nome" id="name" name="name" required>
 
                 <label class="form-label" for="email">Ocupação</label>
-                <input class="form-input" type="text" placeholder="Insira sua ocupação" id="email" name="email" >
+                <input class="form-input" type="text" placeholder="Insira sua ocupação" id="email" name="email">
 
                 <button class="btn-submit" type="submit" onclick="clicked(event)">
                     Confirmar
                 </button>
             </form>
 
-            <button class="btn-close-popup" onclick="togglePopup()">
-                Close
-            </button>
+            <button class="btn-close-popup" onclick="togglePopup()">Close</button>
+        </div>
+    </div>
+
+    <!-- Popup de confirmação -->
+    <div id="successPopup" class="overlay-container">
+        <div class="popup-box">
+            <h1 style="color: green;">Cadastro realizado com sucesso!</h2>
+            <p class="subtitulo">Essa é a sua senha</p>
+            <h2>20</h2>
+            <p class="subtitulo2">Tire foto ou anote sua senha</p>
+            <button class="btn-close-popup" onclick="closeSuccessPopup()">Fechar</button>
         </div>
     </div>
 
