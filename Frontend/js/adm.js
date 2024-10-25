@@ -137,7 +137,7 @@ const funcBtnAusente = async() => {
             status : 'Cancelado'
         })
         try {
-            const response = await fetch(`http://localhost:5000/fila/${user._id}`, {
+            const response = await fetch(`https://api-sistema-de-fila-1.onrender.com/fila/${user._id}`, {
                 method : 'put',
                 headers : {"Content-Type": "application/json; charset=UTF-8"},
                 body : data
