@@ -62,7 +62,6 @@ form.addEventListener('submit', async(e) => {
         })
     
         const json = await response.json();
-        console.log(json)
         document.getElementById("senha").innerText = json.fila.senha;
 
         clicked(e);
