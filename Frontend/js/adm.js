@@ -80,7 +80,7 @@ const funcBtnFinalizar = async() => {
         })
         try {
 
-            const response = await fetch(`https://api-sistema-de-fila-1.onrender.comfila/${user._id}`, {
+            const response = await fetch(`https://api-sistema-de-fila-1.onrender.com/fila/${user._id}`, {
                 method : 'put',
                 headers : {"Content-Type": "application/json; charset=UTF-8"},
                 body : data
