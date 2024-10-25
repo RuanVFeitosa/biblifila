@@ -6,7 +6,7 @@ const proxListaContainer = document.getElementsByClassName("pedido-numero")[0]
 
 
 const proximosLista = async() => {
-    const response = await fetch('http://localhost:5000/fila/pendentes', {
+    const response = await fetch('https://api-sistema-de-fila-1.onrender.com/fila/pendentes', {
         method : "GET",
         headers : {},
     })
@@ -27,7 +27,7 @@ const proximosLista = async() => {
 
 const chamadosLista = async () => {
     try {
-        const response = await fetch('http://localhost:5000/fila/concluidos', {
+        const response = await fetch('https://api-sistema-de-fila-1.onrender.com/fila/concluidos', {
             method : "GET",
         })
 
@@ -49,7 +49,7 @@ const chamadosLista = async () => {
 }
 
 const proxLista = async() => {
-    const response = await fetch('http://localhost:5000/fila/proxLista', {
+    const response = await fetch('https://api-sistema-de-fila-1.onrender.com/fila/proxLista', {
         method : "GET"
     })
 
@@ -80,7 +80,7 @@ const funcBtnFinalizar = async() => {
         })
         try {
 
-            const response = await fetch(`http://localhost:5000/fila/${user._id}`, {
+            const response = await fetch(`https://api-sistema-de-fila-1.onrender.comfila/${user._id}`, {
                 method : 'put',
                 headers : {"Content-Type": "application/json; charset=UTF-8"},
                 body : data

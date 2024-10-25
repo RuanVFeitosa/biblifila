@@ -55,7 +55,7 @@ form.addEventListener('submit', async(e) => {
     })
 
     try {
-        const response = await fetch('http://localhost:5000/fila', {
+        const response = await fetch('https://api-sistema-de-fila-1.onrender.com/fila', {
             method : 'POST',
             headers : {"Content-type": "application/json; charset=UTF-8"},
             body : data

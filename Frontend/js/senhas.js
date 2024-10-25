@@ -17,7 +17,7 @@ const senhaAtual = document.getElementsByClassName("senha-atual")[0];
 // limitarSenhas(containerCham, 'cham');
 
 const proximosLista = async() => {
-    const response = await fetch('http://10.92.198.7:5000/fila/pendentes', {
+    const response = await fetch('https://api-sistema-de-fila-1.onrender.com/fila/pendentes', {
         method : "GET",
         headers : {},
     })
@@ -41,7 +41,7 @@ setTimeout(function (){
 
 const chamadosLista = async () => {
     try {
-        const response = await fetch('http://10.92.198.7:5000/fila/concluidos', {
+        const response = await fetch('https://api-sistema-de-fila-1.onrender.com/fila/concluidos', {
             method: "GET",
         });
 
@@ -62,7 +62,7 @@ const chamadosLista = async () => {
 
 // Função para obter a senha atual
 const proxLista = async () => {
-    const response = await fetch('http://10.92.198.7:5000/fila/proxLista', {
+    const response = await fetch('https://api-sistema-de-fila-1.onrender.com/fila/proxLista', {
         method: "GET"
     });
 
