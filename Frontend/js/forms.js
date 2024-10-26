@@ -40,19 +40,31 @@ function clicked(event) {
 
 const name = document.getElementById("name");
 const form = document.getElementById("form-container");
+const btnSubmit = document.getElementsByClassName("btn-submit")[0];
 
 form.addEventListener('submit', async(e) => {
     e.preventDefault();
+    
+    btnSubmit.disabled = true;
 
+    console.log("fez o submit");
+    
 
+    if(name.value.trim().length < 3){
+        // Volta a mensagem de erro
 
-    // console.log("fez o submit");
+        console.log("o nome caiu na validacao")
+    }
+
     // console.log(name.value);
 
     const data = JSON.stringify({
         nome : name.value,
         status : 'Pendente'
     })
+
+    
+   
 
     try {
         const response = await fetch('https://api-sistema-de-fila-1.onrender.com/fila', {
@@ -62,12 +74,13 @@ form.addEventListener('submit', async(e) => {
         })
     
         const json = await response.json();
+        console.log(json);
+
         document.getElementById("senha").innerText = json.fila.senha;
 
         clicked(e);
         name.value = ""
-
-        // console.log(json);
+        btnSubmit.disabled = false;
 
     } catch (error) {
         console.error(error);
