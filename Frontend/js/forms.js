@@ -41,20 +41,24 @@ function clicked(event) {
 const name = document.getElementById("name");
 const form = document.getElementById("form-container");
 const btnSubmit = document.getElementsByClassName("btn-submit")[0];
+const msgErro = document.getElementById("error-message");
 
 form.addEventListener('submit', async(e) => {
     e.preventDefault();
-    
+
+    if(name.value.trim().length < 3){
+        // Volta a mensagem de erro
+        msgErro.innerText = "Dados invalidos, digite mais de 3 caracteres"
+        msgErro.style.display = 'block'
+        return null
+    }
+
     btnSubmit.disabled = true;
 
     console.log("fez o submit");
     
 
-    if(name.value.trim().length < 3){
-        // Volta a mensagem de erro
-
-        console.log("o nome caiu na validacao")
-    }
+    
 
     // console.log(name.value);
 
@@ -81,6 +85,7 @@ form.addEventListener('submit', async(e) => {
         clicked(e);
         name.value = ""
         btnSubmit.disabled = false;
+        msgErro.style.display = 'none'
 
     } catch (error) {
         console.error(error);
