@@ -6,15 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./css/tela_principal.css">
     <title>BIBLIFILA</title>
 </head>
 
 <body>
     <h1 class="title">BIBLIFILA</h1>
-    <button class="ns" onclick="togglePopup()"><p>Nova Senha</p></button>
-    
+    <button class="ns" onclick="togglePopup()">
+        <p>Nova Senha</p>
+    </button>
+
 
     <!-- The form Senha -->
     <div id="popupOverlay" class="overlay-container">
@@ -24,12 +28,15 @@
 
             <form class="form-container" id="form-container">
                 <label class="form-label" for="name">Nome</label>
-                <input class="form-input" type="text" placeholder="Insira seu nome" id="name" name="name" required minlength="3">
+                <input class="form-input" type="text" placeholder="Insira seu nome" id="name" name="name" required
+                    minlength="3" >
+                <p id="error-message" style="color: red; display: none;">O nome não pode conter apenas espaços e deve
+                    ter pelo menos 3 caracteres.</p>
 
                 <!-- <label class="form-label" for="email">Ocupação</label>
                 <input class="form-input" type="text" placeholder="Insira sua ocupação" id="email" name="email"> -->
 
-                <button class="btn-submit" type="submit" >
+                <button class="btn-submit" type="submit">
                     <!-- onclick="clicked(event) -->
                     Confirmar
                 </button>
@@ -43,12 +50,14 @@
     <div id="successPopup" class="overlay-container">
         <div class="popup-box">
             <h1 style="color: green;">Cadastro realizado com sucesso!</h2>
-            <p class="subtitulo">Essa é a sua senha</p>
-            <h2 id="senha">...</h2>
-            <p class="subtitulo2">Tire foto ou anote sua senha</p>
-            <button class="btn-close-popup" onclick="closeSuccessPopup()">Fechar</button>
+                <p class="subtitulo">Essa é a sua senha</p>
+                <h2 id="senha">...</h2>
+                <p class="subtitulo2">Tire foto ou anote sua senha</p>
+                <button class="btn-close-popup" onclick="closeSuccessPopup()">Fechar</button>
         </div>
     </div>
+
+
 
     <script src="./js/forms.js"></script>
 </body>
