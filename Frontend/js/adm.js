@@ -153,7 +153,16 @@ const funcBtnAusente = async() => {
     }
 )}
 
+const funcAtualizarFila = () => {
+    const btnAtulizarFila = document.getElementsByClassName("atualizar-fila")[0]
 
+    btnAtulizarFila.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.reload();
+    })
+}
+
+funcAtualizarFila();
 
 
 

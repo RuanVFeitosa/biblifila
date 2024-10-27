@@ -43,8 +43,16 @@ const form = document.getElementById("form-container");
 const btnSubmit = document.getElementsByClassName("btn-submit")[0];
 const msgErro = document.getElementById("error-message");
 
+const nomesInvalidos = ['cuu', 'porra', 'desgraça'];
+
 form.addEventListener('submit', async(e) => {
     e.preventDefault();
+
+    if(nomesInvalidos.includes(name.value)){
+        msgErro.innerText = "Dados invalidos"
+        msgErro.style.display = 'block'
+        return null
+    }
 
     if(name.value.trim().length < 3){
         // Volta a mensagem de erro
@@ -89,6 +97,7 @@ form.addEventListener('submit', async(e) => {
 
     } catch (error) {
         console.error(error);
+        
     }
 
 

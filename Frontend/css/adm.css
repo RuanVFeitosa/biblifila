@@ -236,7 +236,7 @@
 /* Botões de ações */
 .botoes {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 70%;
 }
 
@@ -247,6 +247,7 @@
     border-radius: 8px;
     cursor: pointer;
     width: 22%;
+    margin: 10px;
     color: white;
 }
 
