@@ -278,7 +278,7 @@
 }
 
 
-.prox, .cham {
+.prox, .cham, .ause {
     font-size: 50px;
     font-weight: bold;
     margin: 10px;
@@ -294,6 +294,10 @@
 
 .cham {
     background-color: #4caf50 ;
+}
+
+.ause {
+    background-color: red;
 }
 
 .containerAus,.containerProx, .containerCham {

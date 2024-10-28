@@ -1,6 +1,7 @@
 const containerProx = document.getElementsByClassName("containerProx")[0]
 const containerCham = document.getElementsByClassName("containerCham")[0]
 const proxListaContainer = document.getElementsByClassName("pedido-numero")[0]
+const containerAusentes = document.getElementsByClassName("containerAus")[0];
 
 
 
@@ -153,6 +154,24 @@ const funcBtnAusente = async() => {
     }
 )}
 
+const ausentesLista = async() => {
+    try {   
+        const response = await fetch('https://api-sistema-de-fila-1.onrender.com/fila/cancelados', {
+            method : 'GET'
+        })
+    
+        const json = await response.json();
+        const cancelados = json.cancelados;
+    
+        cancelados.forEach(element => {
+            containerAusentes.innerHTML += `<div class="ause">${element.senha}</div>`
+        });
+        console.log(json)
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 const funcAtualizarFila = () => {
     const btnAtulizarFila = document.getElementsByClassName("atualizar-fila")[0]
 
@@ -166,10 +185,10 @@ funcAtualizarFila();
 
 
 
-
-proximosLista()
-chamadosLista()
-proxLista()
+ausentesLista();
+proximosLista();
+chamadosLista();
+proxLista();
 funcBtnFinalizar();
 funcBtnAusente();
 
