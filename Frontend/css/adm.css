@@ -15,7 +15,7 @@
 /* Coluna 1 - Lateral esquerda */
 .sidebar {
     background-color: white;
-    width: 15%;
+    width: 10%;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -296,7 +296,7 @@
     background-color: #4caf50 ;
 }
 
-.containerProx, .containerCham {
+.containerAus,.containerProx, .containerCham {
     display: flex;
     flex-direction: column-reverse;
     width: 50%;
@@ -311,13 +311,13 @@
     display: flex;
     justify-content: space-between;
     /* flex-direction: column; */
-    width: 60%;
+    width: 50%;
     height: 100%;
     background-color: white;
     color: black;
 }
 
-.paiProx, .paiCham {
+.paiAus, .paiProx, .paiCham {
     margin-top: 10px;
     display: flex;
     text-align: center;
@@ -325,11 +325,15 @@
     flex-direction: column;
     /* align-content: center; */
     align-items: center;
-    width: 50%;
+    width: 40%;
     /* border: 1px solid black; */
 }
 
-.paiProx h2 ,.paiCham h2 {
+.paiAus h2 {
+    background-color: #E62129;
+}
+
+.paiAus h2, .paiProx h2 ,.paiCham h2 {
     width: 100%;
     font-size: 60px;
     padding: 10px;

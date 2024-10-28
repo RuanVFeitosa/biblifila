@@ -233,10 +233,10 @@ button:hover {
     background-color: #b71c1c;
 }
 
-.containerProx, .containerCham {
+.containerAus,.containerProx, .containerCham {
     display: flex;
     flex-direction: column-reverse;
-    width: 50%;
+    width: 40%;
 }
 
 .containerProx {
@@ -255,8 +255,7 @@ button:hover {
 }
 
 
-
-.paiProx, .paiCham {
+.paiAus, .paiProx, .paiCham {
     margin-top: 10px;
     display: flex;
     text-align: center;
@@ -264,18 +263,21 @@ button:hover {
     flex-direction: column;
     /* align-content: center; */
     align-items: center;
-    width: 50%;
+    width: 100%;
     /* border: 1px solid black; */
 }
 
-.paiProx h2 ,.paiCham h2 {
-    width: 90%;
-    font-size: 60px;
+.paiAus h2,.paiProx h2 ,.paiCham h2 {
+    width: 50%;
+    font-size: 30px;
     padding: 10px;
     border-radius: 5px;
     /* border: 1px solid black; */
 }
 
+.paiAus h2 {
+    background-color: #E62129;
+}
 .paiProx h2 {
     background-color: #ffc107;
 }
