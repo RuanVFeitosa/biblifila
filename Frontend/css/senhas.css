@@ -70,6 +70,7 @@ body {
     padding: 10px;
     display: flex;
     flex-direction: column;
+
 }
 
 .middle-section h2 {
@@ -189,6 +190,7 @@ body {
     color: black;
     border-radius: 10px;
     padding: 20px;
+    border-left: 1px solid #000;
 }
 
 .senha-atual {
@@ -251,10 +253,11 @@ button:hover {
     display: flex;
     justify-content: space-between;
     /* flex-direction: column; */
-    width: 40%;
-    height: 100%;
+    width: 50%;
+    /* height: 10%; */
     background-color: white;
     color: black;
+    border-radius: 10px;
 }
 
 
