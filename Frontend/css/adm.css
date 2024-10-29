@@ -358,3 +358,27 @@
     width: 100%;
 
 }
+
+.numAus {
+    border: none;
+    border-bottom: 1px solid #D9382D;
+    
+}
+
+.botAus {
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+    color: white;
+    border: 1px solid #D9382D;
+    background-color: #E62129;
+}
+
+.botAus:hover {
+    border: none;
+    background-color: #F8B600;
+    transition: 0.5s;
+}
