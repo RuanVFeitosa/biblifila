@@ -181,10 +181,44 @@ const funcAtualizarFila = () => {
     })
 }
 
+const mudarParaProximo = () => {
+    const form = document.getElementById("form-mudar-proximo");
+    const senha = document.getElementById("senha");
+    const msgError = document.getElementById("msg-error");
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault(); 
+
+        try {
+
+            const response = await fetch(`https://api-sistema-de-fila-1.onrender.com/fila/getPorSenha/${senha.value}`, {
+                method : 'GET'
+            })
+            const json = await response.json();
+            const user = json.user;
+
+            const data = JSON.stringify({
+                status : 'Pendente'
+            })
+
+            const responseUpdate = await fetch(`https://api-sistema-de-fila-1.onrender.com/fila/${user._id}`, {
+                method : 'put',
+                headers : {"Content-Type": "application/json; charset=UTF-8"},
+                body : data
+            })
+            
+            window.location.reload();
+
+        } catch (error) {
+            msgError.style.display = 'block'
+            console.error(error);
+        }
+        console.log(senha.value)
+        console.log("fez o submit")
+    })
+}
+
+mudarParaProximo();
 funcAtualizarFila();
-
-
-
 ausentesLista();
 proximosLista();
 chamadosLista();
