@@ -17,7 +17,10 @@ const proximosLista = async() => {
     
         pendentes.forEach(element => {
             containerProx.innerHTML += 
-            `<div class="prox">${element.senha}</div>`
+            `<div class="prox">
+            ${element.senha}
+            <p>${element.nome}</p>
+            </div>`
             // console.log(element)
         });
  
@@ -39,7 +42,10 @@ const chamadosLista = async () => {
             console.log("tem 11 elementtos")
         }
         concluidos.forEach(element => {
-            containerCham.innerHTML += `<div class="cham">${element.senha}</div>`
+            containerCham.innerHTML += `<div class="cham">
+            ${element.senha}
+            <p>${element.nome}</p>
+            </div>`
             // console.log(element)
         })
         
@@ -164,7 +170,10 @@ const ausentesLista = async() => {
         const cancelados = json.cancelados;
     
         cancelados.forEach(element => {
-            containerAusentes.innerHTML += `<div class="ause">${element.senha}</div>`
+            containerAusentes.innerHTML += `<div class="ause">
+            ${element.senha}
+            <p>${element.nome}</p>
+            </div>`
         });
         console.log(json)
     } catch (error) {

@@ -28,7 +28,10 @@ const proximosLista = async() => {
     pendentes.forEach(element => {
 
         containerProx.innerHTML += 
-        `<div class="prox">${element.senha}</div>`
+        `<div class="prox">
+        ${element.senha}
+        <p>${element.nome}</p>
+        </div>`
         // console.log(element)
     });
     // console.log(pendentes);
@@ -54,7 +57,10 @@ const chamadosLista = async () => {
 
         // Adicionar senhas, respeitando o limite
         concluidos.forEach(element => {
-            containerCham.innerHTML += `<div class="cham">${element.senha}</div>`;
+            containerCham.innerHTML += `<div class="cham">
+            ${element.senha}
+            <p>${element.nome}</p>
+            </div>`;
         });
     } catch (error) {
         console.log(error);
@@ -85,7 +91,10 @@ try {
     const cancelados = json.cancelados;
 
     cancelados.forEach(element => {
-        containerAusenentes.innerHTML += `<div class="ause">${element.senha}</div>`
+        containerAusenentes.innerHTML += `<div class="ause">
+        ${element.senha}
+        <p>${element.nome}</p>
+        </div>`
     });
     console.log(json)
 } catch (error) {
